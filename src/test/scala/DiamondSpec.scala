@@ -32,7 +32,7 @@ object DiamondGenerator {
 
 object Diamond {
   def diamond(c: Char) : String = {
-    "A\n" * numberOfLines(c)
+    ("A" * numberOfLines(c) + "\n") * numberOfLines(c)
   }
 
   def numberOfLines(c: Char) = ((2 * ord(c)) + 1)
