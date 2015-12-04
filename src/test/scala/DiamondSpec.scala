@@ -32,7 +32,8 @@ object DiamondGenerator {
 
 object Diamond {
   def diamond(c: Char) : String = {
-    ("A" * numberOfLines(c) + "\n") * numberOfLines(c)
+    val diamondSize = numberOfLines(c)
+    ("A" * diamondSize + "\n") * diamondSize
   }
 
   def numberOfLines(c: Char) = ((2 * ord(c)) + 1)
