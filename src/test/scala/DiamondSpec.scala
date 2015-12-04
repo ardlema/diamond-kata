@@ -16,6 +16,10 @@ class DiamondSpec extends UnitSpec {
     "number of lines" in {
       forAll (inputChar) { c => assert(DiamondGenerator.diamondLines(c).size == Diamond.numberOfLines(c)) }
     }
+
+    "squareness" in {
+      forAll (inputChar) { c => assert(DiamondGenerator.diamondLines(c) forall {_.length == Diamond.numberOfLines(c)}) }
+    }
   }
 }
 
