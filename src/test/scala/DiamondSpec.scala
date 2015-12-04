@@ -14,7 +14,7 @@ class DiamondSpec extends UnitSpec {
     }
 
     "number of lines" in {
-      forAll (inputChar) { c => assert(DiamondGenerator.diamondLines(c).size == 2 * Diamond.ord(c) + 1 ) }
+      forAll (inputChar) { c => assert(DiamondGenerator.diamondLines(c).size == Diamond.numberOfLines(c)) }
     }
   }
 }
@@ -28,8 +28,10 @@ object DiamondGenerator {
 
 object Diamond {
   def diamond(c: Char) : String = {
-    "A\n" * ((2 * ord(c)) + 1)
+    "A\n" * numberOfLines(c)
   }
+
+  def numberOfLines(c: Char) = ((2 * ord(c)) + 1)
 
   def ord(c: Char) : Int = c - 'A'
 }
